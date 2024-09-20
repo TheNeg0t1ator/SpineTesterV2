@@ -1,4 +1,5 @@
 from outputdataclass import *
+from uartSensor import *
 
 astmFactor:float = 440000.0
 SUPPORTSPACING28 = 711.2
@@ -11,19 +12,20 @@ weighttest2:float = 582.0
 
 class SensorClass:
     sensorid:int
+    weights:list[float]
     def __init__(self, sensorid:int) -> None:
         self.sensorid = sensorid
     def getWeight(self) -> float:
         if self.sensorid == 1:
             return weighttest1
+            # return self.weights[0]
         if self.sensorid == 2:
             return weighttest2
-    def measureWeight(self) -> None:
-        #TODO get the average value from uart
-        
-        
+            # return self.weights[1]
+    def measureWeight(self, UART:uartSensor) -> None:
+        self.weights = UART.getUART()
         pass
-
+    
 class SensorSet:
     sensors: list[SensorClass]
     weights: list[float] = [0.0,0.0]
