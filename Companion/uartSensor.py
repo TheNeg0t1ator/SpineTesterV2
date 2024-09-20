@@ -6,7 +6,7 @@ class uartSensor:
         self.com_port = serial.Serial('COM1', baudrate=115200)
         
         pass
-    def getUART(self):
+    def getUART(self)-> list[float]:
         # get the two values from the uart
         # return the list of values
         self.com_port.write(b'getWeight\n')

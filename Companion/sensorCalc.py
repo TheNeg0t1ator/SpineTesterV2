@@ -16,6 +16,7 @@ class SensorClass:
     def __init__(self, sensorid:int) -> None:
         self.sensorid = sensorid
     def getWeight(self) -> float:
+        #TODO change the return values if the uart works
         if self.sensorid == 1:
             return weighttest1
             # return self.weights[0]
