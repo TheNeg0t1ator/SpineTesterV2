@@ -1,38 +1,27 @@
 from machine import Pin
-from hx711 import *
+from hx711_multi import HX711
+import time
 
-# 1. initalise the hx711 with pin 14 as clock pin, pin
-# 15 as data pin
-hx = hx711(Pin(4), Pin(5))
+# Initialize both sensors with unique state machines
+hx1 = HX711(clock_pin=4, data_pin=5, sm_id=0)  # Sensor 1
+hx2 = HX711(clock_pin=3, data_pin=2, sm_id=1)  # Sensor 2
 
-# 2. power up
-hx.set_power(hx711.power.pwr_up)
+# Calibration sequence
+for hx in [hx1, hx2]:
+    hx.set_gain(128)  # Set gain to 128
+    time.sleep_ms(500)  # Stabilization time
 
-# 3. [OPTIONAL] set gain and save it to the hx711
-# chip by powering down then back up
-hx.set_gain(hx711.gain.gain_128)
-hx.set_power(hx711.power.pwr_down)
-hx711.wait_power_down()
-hx.set_power(hx711.power.pwr_up)
-
-# 4. wait for readings to settle
-hx711.wait_settle(hx711.rate.rate_10)
-
-# 5. read values
-
-while(True):# wait (block) until a value is read
-    val = hx.get_value()
-
-    # or use a timeout
-    if val := hx.get_value_timeout(250000):
-        # value was obtained within the timeout period
-        # in this case, within 250 milliseconds
-        print(val)
-
-    # or see if there's a value, but don't block if not
-    if val := hx.get_value_noblock():
-        print(val)
-
-# 6. stop communication with HX711
-hx.close()
-
+try:
+    while True:
+        # Read both sensors
+        val1 = hx1.read()
+        val2 = hx2.read()
+        
+        # Print results
+        print(f"A: {val1:>8} | B: {val2:>8}")
+        time.sleep_ms(100)  # Adjust sampling rate
+        
+except KeyboardInterrupt:
+    hx1.close()
+    hx2.close()
+    print("Sensors closed")
