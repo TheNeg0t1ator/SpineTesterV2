@@ -1,0 +1,102 @@
+(footprint "Solderpad"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "f418a9cd-b4a3-4d18-8d4d-9016e1fdbd8c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Solderpad"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "b20ea946-4bbc-4f0c-a351-17b33e730120")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d129a376-612b-4bd8-a6ac-e6363a13e419")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "79579f4c-de1b-4e62-8cb2-f84498fe0d71")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "ea5549e6-4d69-43f4-bafe-a1bd07d648c0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at 0 0)
+		(size 1.905 1.27)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.45)
+		(thermal_bridge_angle 45)
+		(uuid "bb29e2f5-96c9-4966-9325-80f420bdb25c")
+	)
+	(pad "2" smd roundrect
+		(at 0 -1.524)
+		(size 1.905 1.27)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.45)
+		(thermal_bridge_angle 45)
+		(uuid "82e38a4f-4998-4f33-afb8-09eb5bcbd893")
+	)
+	(pad "3" smd roundrect
+		(at 0 -3.048)
+		(size 1.905 1.27)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.45)
+		(thermal_bridge_angle 45)
+		(uuid "cdf171d9-7cae-463a-9105-3bb487a93508")
+	)
+	(pad "4" smd roundrect
+		(at 0 -4.572)
+		(size 1.905 1.27)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.45)
+		(thermal_bridge_angle 45)
+		(uuid "575a9cc8-83a1-44f3-a2b4-7639f47a5682")
+	)
+	(embedded_fonts no)
+)
